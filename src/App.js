@@ -1,24 +1,26 @@
-import logo from './logo.svg';
+import React from 'react';
+import Navbar from './components/Navbar'
 import './App.css';
+import {Route,Routes} from 'react-router-dom'
+import Home from './pages/Home';
+import Booking from './pages/Booking';
+import Shipping from './pages/Shipping';
+import ChatButton from './components/UI/ChatButton';
+import { useStateContext } from './context/ContextProvider';
 
 function App() {
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <main className="bg-main-bg h-full min-h-screen w-full" >
+    <Navbar />
+      <Routes>
+        <Route path='/' element={<Home />} />
+        <Route path='/booking' element={<Booking />} />
+        <Route path='/shipping' element={<Shipping />} />
+      </Routes>
+
+      <ChatButton />
+    </main>
   );
 }
 
